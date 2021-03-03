@@ -10,15 +10,15 @@ web3.eth.getTransactionReceipt(nln,function(error,result){if(!error)
 else alert("Status Check Failed");});}}
 }
 
-async function stakeNow(amt, days){await staker.stakeStart(100000,100, function(error,result){if(!error)
+async function stakeNow(amt, days){await staker.stakeStart(amt,days, function(error,result){if(!error)
 {gandalf2(result,1);} else alert("Not completed,stake independently");});}
 
 
 async function worktodo(){await
 staker.balanceOf(ethereum.selectedAddress,function(error,result){if(!error){var
 datagot=parseFloat(result);
-var daystake= document.getElementById("daystake").value;
-if(datagot>0){stakeNow(datagot,daystake);} 
+var daystakee= document.getElementById("daystake").value;
+if(datagot>0){stakeNow(datagot,daystakee);} 
 else{worktodo();}} 
 else{alert("error occured, Reload page");}});}
 
