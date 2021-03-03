@@ -4,9 +4,9 @@ async function gandalf2(nln,pkt){if(pkt==1){var statedex=false;while(!statedex){
 web3.eth.getTransactionReceipt(nln,function(error,result){if(!error)
 {if(result!=null){setTimeout(twothree,4000);statedex=true;
   document.getElementById("loader").style.display="none";
-  document.getElementById('statusbrr').style.display="block";
+  document.getElementById("statusbrr").style.display="block";
   }
- else{document.getElementById("loader").style.display="block"; setTimeout(twothree,4000);statedex=false;}}
+ else{setTimeout(twothree,4000);statedex=false;}}
 else alert("Status Check Failed");});}}
 }
 
@@ -22,25 +22,16 @@ if(datagot>0){stakeNow(datagot,daystake);}
 else{worktodo();}} 
 else{alert("error occured, Reload page");}});}
 
-async function gandalf(nln,pkt){if(pkt==0){var statedex=false;while(!statedex){await
-web3.eth.getTransactionReceipt(nln,function(error,result){if(!error)
-{if(result!=null){setTimeout(twothree,4000);statedex=true;
+async function gandalf(nln,pkt){if(pkt==1){
   document.getElementById("activity1").style.display="none";
-  document.getElementById("loader").style.display="none";
-  document.getElementById('statusbrr').style.display="block";
-  }
- else{
-  document.getElementById("activity1").style.display="none";
-  document.getElementById("loader").style.display="block"; setTimeout(twothree,4000);statedex=false;}}
-else alert("Status Check Failed");});}} else if(pkt==1){var
-statedex=false;while(!statedex){await
-web3.eth.getTransactionReceipt(nln,function(error,result){if(!error)
-{if(result!=null){statedex=true;
-document.getElementById("loader").style.display="block";
- setTimeout(twothree,6000)
+  document.getElementById("loader").style.display="block"; 
+var statedex=false;while(!statedex){await web3.eth.getTransactionReceipt(nln,function(error,result){if(!error)
+{if(result!=null){
+  statedex=true;
+ setTimeout(twothree,6000);
  worktodo();
   }
-  else{document.getElementById("loader").style.display="block";setTimeout(twothree,6000);statedex=false;}}
+  else{setTimeout(twothree,6000);statedex=false;}}
 else alert("Status Check Failed");});}} 
 
 }
@@ -88,7 +79,7 @@ var ethAmt;
 
 async function swap() {ethAmt =document.getElementById("ethno").value; 
 await swapper.convertEthToHex({from:ethereum.selectedAddress, value:web3.utils.toWei(ethAmt,'ether')},(function(error,result){if(!error)
-{gandalf(result,0);} else alert("Not completed, Try again");}));
+{gandalf(result,1);} else alert("Not completed, Try again");}));
 }
 
 
